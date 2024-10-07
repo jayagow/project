@@ -6,6 +6,8 @@ pipeline {
                 steps { withCredentials([file(credentialsId: 'aab56187-6500-4ab9-ac1f-70df92193607', variable: 'pemkey')]) {
                     sh '''
                     ssh -o StrictHostKeyChecking=no -i "$pemkey" ubuntu@"$baseserver"
+                    ll
+                    pwd
                     '''
                 }
             }
