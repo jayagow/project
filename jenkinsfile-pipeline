@@ -9,6 +9,7 @@ pipeline {
                         ls -lrt
                         pwd
                         cat git/NOTES/notes.txt
+                        ./git/NOTES/dockeruninstall.sh
                         ./git/NOTES/dockerinstall.sh
                     '    
                     '''
