@@ -2,11 +2,13 @@ pipeline {
     agent any
 
     stages {
-        stage('Display 1') {
-            steps {
-                echo "$name"
-                echo "$name1"
-                echo "$name2"
+        withCredentials([file(credentialsId: 'aab56187-6500-4ab9-ac1f-70df92193607', variable: 'pemkey')]) {
+            stage('Display 1') {
+                steps {
+                    sh '''
+                    ssh -i "$pemkey" ubuntu@"$baseserver"
+                    '''
+                }
             }
         }
         stage('Display 2') {
