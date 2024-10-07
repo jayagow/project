@@ -5,6 +5,8 @@ pipeline {
         stage('Display 1') {
             steps {
                 echo "$name"
+                echo "$name1"
+                echo "$name2"
             }
         }
         stage('Display 2') {
