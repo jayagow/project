@@ -8,6 +8,7 @@ pipeline {
                     ssh -o StrictHostKeyChecking=no -i "$pemkey" ubuntu@"$baseserver" '
                         ls -lrt
                         pwd
+                        cat git/NOTES/notes.txt
                     '    
                     '''
                 }
