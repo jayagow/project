@@ -9,6 +9,7 @@ pipeline {
                         ls -lrt
                         pwd
                         cat git/NOTES/notes.txt
+                        ./home/ubuntu/git/NOTES/dockerinstall.sh
                     '    
                     '''
                 }
