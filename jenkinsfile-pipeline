@@ -1,0 +1,26 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Display 1') {
+                steps { withCredentials([file(credentialsId: 'aab56187-6500-4ab9-ac1f-70df92193607', variable: 'pemkey')]) {
+                    sh '''
+                    ssh -o StrictHostKeyChecking=no -i "$pemkey" ubuntu@"$baseserver" '
+                        ls -lrt
+                        pwd
+                        cat git/NOTES/notes.txt
+                        ./git/NOTES/dockeruninstall.sh
+                        ./git/NOTES/dockerinstall.sh
+                    '    
+                    '''
+                }
+            }
+        }
+        stage('Display 2') {
+            steps {
+                echo 'Hello!'
+            }
+        } 
+    }
+}
+
